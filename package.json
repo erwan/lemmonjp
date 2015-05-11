@@ -1,0 +1,19 @@
+{
+  "name": "lemmon.jp",
+  "devDependencies": {
+    "q": "1.4.0",
+    "browserify": "3.44.2",
+    "uglify-js": "2.4.21",
+    "jquery": "1.11.3",
+    "abyssa": "7.0.0",
+    "handlebars": "3.0.3",
+    "prismic.io": "1.1.4"
+  },
+  "scripts": {
+    "templates": "handlebars tmpl/*.tmpl -f dist/templates.js",
+    "build": "browserify js/app.js |uglifyjs > dist/app.min.js",
+    "serve": "python -m SimpleHTTPServer",
+
+    "prebuild": "npm run templates"
+  }
+}
