@@ -1,4 +1,5 @@
 var Prismic = require('prismic.io').Prismic,
+    _ = require('lodash'),
     Q = require('q');
 
 function Q_submit(form) {
@@ -11,6 +12,7 @@ exports.recentPosts = function(Api, page) {
         .ref(Api.master())
         .page(page)
         .pageSize(5)
+        .fetchLinks('category.name')
         .query(Prismic.Predicates.at("document.type", "post"))
                     .orderings('[my.post.date desc]'));
 };

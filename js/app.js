@@ -34,10 +34,20 @@
                 Helpers.recentPosts(Api, 1).then(function(response) {
                     console.log("Got resp", response);
                     var html = map(response.results, function(document) {
+                        var date = document.getDate("post.date");
                         return post_tmpl({
                             title: document.getText('post.title'),
                             body: document.getStructuredText('post.body').asHtml(linkResolver),
-                            permalink: linkResolver(document)
+                            date: date.getFullYear() + '年 ' + date.getMonth() + '月 ' + date.getDay() + '日',
+                            permalink: linkResolver(document),
+                            categories: map(document.getGroup('post.categories').toArray(), function (grpdoc) {
+                                var cat = grpdoc.getLink('link');
+                                console.log("Got category: ", cat);
+                                return {
+                                    "url": linkResolver(cat),
+                                    "name": cat.getText('category.name')
+                                };
+                            })
                         });
                     }).join("\n");
                     $("#content").html(html);
