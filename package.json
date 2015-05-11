@@ -2,18 +2,26 @@
   "name": "lemmon.jp",
   "devDependencies": {
     "q": "1.4.0",
+    "lodash": "3.8.0",
     "browserify": "3.44.2",
+    "browserify-handlebars": "1.0.0",
     "uglify-js": "2.4.21",
     "jquery": "1.11.3",
     "abyssa": "7.0.0",
-    "handlebars": "3.0.3",
-    "prismic.io": "1.1.4"
+    "prismic.io": "1.1.4",
+    "gh-pages-deploy": "0.3.0"
   },
   "scripts": {
-    "templates": "handlebars tmpl/*.tmpl -f dist/templates.js",
-    "build": "browserify js/app.js |uglifyjs > dist/app.min.js",
-    "serve": "python -m SimpleHTTPServer",
-
-    "prebuild": "npm run templates"
+    "clean": "rm -rf dist/*",
+    "build": "browserify -t browserify-handlebars js/app.js |uglifyjs > dist/app.min.js; cp index.html dist",
+    "dev": "browserify -t browserify-handlebars js/app.js > dist/app.js",
+    "serve": "cd dist && python -m SimpleHTTPServer",
+    "deploy": "gh-pages-deploy",
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "prep": [
+      "build"
+    ],
   }
 }
