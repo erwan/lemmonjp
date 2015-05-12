@@ -13,15 +13,8 @@
   },
   "scripts": {
     "clean": "rm -rf dist/*",
-    "build": "browserify -t browserify-handlebars js/app.js |uglifyjs > dist/app.min.js; cp index.html dist",
+    "build": "browserify -t browserify-handlebars js/app.js |uglifyjs > dist/app.min.js && cp index.html dist/",
     "dev": "browserify -t browserify-handlebars js/app.js > dist/app.js",
-    "serve": "cd dist && python -m SimpleHTTPServer",
-    "deploy": "gh-pages-deploy"
-  },
-  "gh-pages-deploy": {
-    "staticpath": "dist",
-    "prep": [
-      "build"
-    ]
+    "serve": "cd dist && python -m SimpleHTTPServer"
   }
 }

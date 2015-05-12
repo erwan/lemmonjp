@@ -18,7 +18,7 @@ exports.recentPosts = function(Api, page) {
 };
 
 exports.byUID = function(Api, type, uid) {
-    return Q_submit(ctx.api.forms('everything').ref(ctx.ref).query(Prismic.Predicates.at('my.' + type + '.uid', uid))).then(function(res){
+    return Q_submit(Api.forms('everything').ref(Api.master()).query(Prismic.Predicates.at('my.' + type + '.uid', uid))).then(function(res){
         return (res && res.results && res.results.length) ? res.results[0] : undefined;
     });
 };
