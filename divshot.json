@@ -1,7 +1,6 @@
 {
   "name": "lemmonjp",
-  "root": "./dist",
+  "root": "./build",
   "routes": {
-    "/**": "index.html"
   }
 }

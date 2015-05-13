@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "title": "檸檬の日記",
+    "description": "blog"
+  },
+  "plugins": {
+    "metalsmith-markdown": { },
+    "metalsmith-permalinks": {
+      "pattern": ":title"
+    },
+    "metalsmith-templates": {
+      "engine": "handlebars"
+    },
+    "metalsmith-prismic": {
+      "url": "https://lemmonjp.cdn.prismic.io/api"
+    }
+  }
+}

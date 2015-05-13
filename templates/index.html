@@ -37,6 +37,16 @@
   <div id="content">
     <!-- end header -->
 
+    {{#each prismic.recent-posts }}
+    <p>{{@key}}: {{this}}</p>
+    {{/each}}
+    
+    {{#each prismic.recent-posts.results}}
+
+    <p>post: {{{ this.title.data.body.html }}}</p>
+    
+    {{/each}}
+    
     <div style=""><a href="http://lemmon.jp/page/2/">次ページへ »</a></div>
     <!-- begin footer -->
 
