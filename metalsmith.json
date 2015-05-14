@@ -1,4 +1,6 @@
 {
+  "source": "src",
+  "destination": "dist",
   "metadata": {
     "title": "檸檬の日記",
     "description": "blog"
