@@ -9,12 +9,14 @@
     "jquery": "1.11.3",
     "abyssa": "7.0.0",
     "prismic.io": "1.1.4",
-    "gh-pages-deploy": "0.3.0"
+    "watch": "0.16.0",
+    "divshot-cli": "1.10.5"
   },
   "scripts": {
     "clean": "rm -rf dist/*",
-    "build": "browserify -t browserify-handlebars js/app.js |uglifyjs > dist/app.min.js && cp index.html dist/",
+    "build": "browserify -t browserify-handlebars js/app.js | uglifyjs > dist/app.min.js && cp index.html dist/",
     "dev": "browserify -t browserify-handlebars js/app.js > dist/app.js",
-    "serve": "cd dist && python -m SimpleHTTPServer"
+    "serve": "divshot server",
+    "build:watch": "watch 'npm run build' ."
   }
 }

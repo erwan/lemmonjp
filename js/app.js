@@ -60,7 +60,8 @@
 
     var post = {
         enter: function(data) {
-            console.log("load: ", data.uid)
+            console.log("load: ", data.uid);
+            $("#content").html("");
             Prismic.Api(PRISMIC_URL, function(err, Api) {
                 Helpers.byUID(Api, "post", data.uid).then(function(response) {
                     console.log("Got resp: ", response);
