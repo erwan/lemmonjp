@@ -18,7 +18,7 @@
     _uacct = "UA-1608836-1"; urchinTracker();
   </script -->
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="app.js"></script>
+  <script src="https://prismicio.github.io/baked.js/baked-0.2.1.js"></script>
 
 </head>
 <body>
@@ -37,6 +37,34 @@
   <div id="content">
     <!-- end header -->
 
+<script type="text/prismic-query" data-binding="recent" data-query-orderings="[my.post.date]">
+  [
+    [:d = any(document.type, ["post"])]
+  ]
+</script>
+
+[% _.each(recent.results, function(post) { %]
+  <h2>date</h2>
+  <div class="post">
+    <h3 class="storytitle" id="post-304"><a href="permalink">[%= post.getText('post.title') %]</a></h3>
+    <div class="meta">
+      if categories
+      Filed under:
+      each categories
+        <a href="url" rel="category tag">name</a>
+    leMMon
+    </div>
+    <div class="storycontent">
+      [%= post.getStructuredText('post.body').asHtml() %]
+    </div>
+    <div class="feedback">
+      TODO: Disqus comments
+    </div>
+  </div>
+[% }) %]
+
+
+    
     <div style=""><a href="http://lemmon.jp/page/2/">次ページへ »</a></div>
     <!-- begin footer -->
 

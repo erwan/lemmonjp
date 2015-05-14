@@ -1,22 +1,9 @@
 {
-  "name": "lemmon.jp",
+  "name": "baked-example-stylus",
   "devDependencies": {
-    "q": "1.4.0",
-    "lodash": "3.8.0",
-    "browserify": "3.44.2",
-    "browserify-handlebars": "1.0.0",
-    "uglify-js": "2.4.21",
-    "jquery": "1.11.3",
-    "abyssa": "7.0.0",
-    "prismic.io": "1.1.4",
-    "watch": "0.16.0",
-    "divshot-cli": "1.10.5"
-  },
-  "scripts": {
-    "clean": "rm -rf dist/*",
-    "build": "browserify -t browserify-handlebars js/app.js | uglifyjs > dist/app.min.js && cp index.html dist/",
-    "dev": "browserify -t browserify-handlebars js/app.js > dist/app.js",
-    "serve": "divshot server",
-    "build:watch": "watch 'npm run build' ."
+    "baked": "0.2.1",
+    "gulp": "^3.7.0",
+    "gulp-stylus": "^1.0.2",
+    "gulp-watch": "^0.6.8"
   }
 }
