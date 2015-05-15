@@ -1,4 +1,4 @@
 {
   "loggerLevel": "warn",
-  "api": "https://lemmonjp.prismic.io/api"
+  "api": "https://lemmonjp.cdn.prismic.io/api"
 }
