@@ -37,7 +37,7 @@
   <div id="content">
     <!-- end header -->
 
-<script type="text/prismic-query" data-binding="recent" data-query-orderings="[my.post.date]">
+<script type="text/prismic-query" data-binding="recent" data-query-orderings="[my.post.date desc]" data-query-page-size="5" data-query-fetch-links="categories.name">
   [
     [:d = any(document.type, ["post"])]
   ]
@@ -62,8 +62,6 @@
     </div>
   </div>
 [% }) %]
-
-
     
     <div style=""><a href="http://lemmon.jp/page/2/">次ページへ »</a></div>
     <!-- begin footer -->
