@@ -1,9 +1,11 @@
 <%
-   var time = '';
+   var date = post.getDate('post.date');
    var categories = post.getGroup('post.categories');
 %>
 
-  <h2>{{ date }}</h2>
+  <% if (date) { %>
+  <h2><%= date.getFullYear() %>年<%= date.getMonth() %>月<%= date.getDay() %>日</h2>
+  <% } %>
   <div class="post">
     <h3 class="storytitle">
       <a href="<%= '#' %>"><%= post.getText('post.title') %></a>
@@ -16,7 +18,7 @@
       }).join(","); %>
       -
     <% } %>
-    leMMon @ <%= time %>
+    leMMon
     </div>
     <div class="storycontent">
       <%- post.getStructuredText('post.body').asHtml() %>

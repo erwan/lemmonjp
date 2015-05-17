@@ -38,7 +38,7 @@
     <!-- end header -->
 
     <% prismic.recent.response.results.forEach(function(post){ %>
-        <p>post: <%- partial('post.html', {post: post}); %>
+        <%- partial('post.html', {post: post}); %>
     <% }); %>
     
     <div style=""><a href="http://lemmon.jp/page/2/">次ページへ »</a></div>
@@ -96,22 +96,12 @@
 	</table></div></li>
 		<li id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widgettitle">最近の投稿</h2>
 		<ul>
-					<li>
-				<a href="http://lemmon.jp/2014/06/09/%e3%83%a1%e3%83%87%e3%82%a3%e3%82%a2%e3%81%ae%e3%81%82%e3%82%8a%e6%96%b9/">メディアのあり方</a>
-						</li>
-					<li>
-				<a href="http://lemmon.jp/2013/12/23/give-peace-a-chance%e3%81%a3%e3%81%a6%e6%ad%8c%e3%81%86%e3%82%93%e3%81%a0/">Give Peace a Chanceって歌うんだ</a>
-						</li>
-					<li>
-				<a href="http://lemmon.jp/2013/07/23/%e6%b5%ae%e3%81%84%e3%81%9f%e5%99%a8%e7%94%a8%e8%b2%a7%e4%b9%8f/">浮いた器用貧乏</a>
-						</li>
-					<li>
-				<a href="http://lemmon.jp/2013/06/04/%e3%82%a2%e3%83%ac%e3%83%ab%e3%82%ae%e3%83%bc/">アレルギー</a>
-						</li>
-					<li>
-				<a href="http://lemmon.jp/2013/06/03/%e9%80%83%e3%81%92%e3%81%9f/">逃げた</a>
-						</li>
-				</ul>
+    <% prismic.recent.response.results.forEach(function(post){ %>
+				<li>
+				<a href="#"><%= post.getText('post.title') %></a>
+				</li>
+    <% }); %>
+		</ul>
 		</li>
 <li id="category-cloud" class="widget widget_catcloud"><h2 class="widgettitle">Category</h2>
 <p class="catcloud" style="text-align:center;">
@@ -149,9 +139,20 @@ urchinTracker();
 		</li>
 <li id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="./檸檬の日記_files/檸檬の日記.html">
 				<div>
-					<label class="screen-reader-text" for="s">検索:</label>
-					<input type="text" value="" name="s" id="s">
-					<input type="submit" id="searchsubmit" value="検索">
+<script>
+  (function() {
+    var cx = '018412529242248007050:fvvjqew1x2o';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+          
 				</div>
 			</form></li>
 <li id="archives-3" class="widget widget_archive"><h2 class="widgettitle">アーカイブ</h2>
