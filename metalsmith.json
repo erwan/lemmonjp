@@ -7,7 +7,7 @@
   },
   "plugins": {
     "metalsmith-markdown": { },
-    "metalsmith-prismic": {
+    "metalsmith-prismicio": {
       "url": "https://lemmonjp.cdn.prismic.io/api"
     },
     "metalsmith-partial": {

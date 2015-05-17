@@ -7,7 +7,7 @@
     "metalsmith-partial": "0.1.0",
     "metalsmith-permalinks": "^0.1.1",
     "ejs": "2.3.1",
-    "metalsmith-prismic": "git@github.com:erwan/metalsmith-prismic.git#erwan"
+    "metalsmith-prismicio": "git@github.com:erwan/metalsmith-prismic.git#erwan"
   },
   "scripts": {
     "clean": "rm -rf dist/*",
