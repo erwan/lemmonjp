@@ -37,7 +37,7 @@
   <div id="content">
     <!-- end header -->
 
-    <% prismic.recent.response.results.forEach(function(post){ %>
+    <% prismic.posts.results.forEach(function(post){ %>
         <%- partial('post.html', {post: post}); %>
     <% }); %>
     
@@ -96,9 +96,9 @@
 	</table></div></li>
 		<li id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widgettitle">最近の投稿</h2>
 		<ul>
-    <% prismic.recent.response.results.forEach(function(post){ %>
+    <% prismic.recent.results.forEach(function(post){ %>
 				<li>
-				<a href="#"><%= post.getText('post.title') %></a>
+				<a href=""><%= post.data.title.json.value %></a>
 				</li>
     <% }); %>
 		</ul>

@@ -1,6 +1,6 @@
 <%
-   var date = post.getDate('post.date');
-   var categories = post.getGroup('post.categories');
+   var date = new Date(post.data.date.json.value);
+   var categories = null; // post.getGroup('post.categories');
 %>
 
   <% if (date) { %>
@@ -8,7 +8,7 @@
   <% } %>
   <div class="post">
     <h3 class="storytitle">
-      <a href="<%= '#' %>"><%= post.getText('post.title') %></a>
+      <a href="<%= '#' %>"><%= post.data.title.json.value %></a>
     </h3>
     <div class="meta">
       <% if (categories && categories.length > 0) { %>
@@ -21,10 +21,8 @@
     leMMon
     </div>
     <div class="storycontent">
-      <%- post.getStructuredText('post.body').asHtml() %>
+      <%- post.data.body.html %>
     </div>
-    <div class="feedback">
-      <a href="http://lemmon.jp/2014/06/09/%e3%83%a1%e3%83%87%e3%82%a3%e3%82%a2%e3%81%ae%e3%81%82%e3%82%8a%e6%96%b9/#respond" title="Comment on メディアのあり方">Comments (0)</a>
-    </div>
+    TODO: Disqus
   </div>
 
