@@ -7,14 +7,15 @@
   },
   "plugins": {
     "metalsmith-markdown": { },
-    "metalsmith-permalinks": {
-      "pattern": ":title"
-    },
-    "metalsmith-templates": {
-      "engine": "handlebars"
-    },
     "metalsmith-prismic": {
       "url": "https://lemmonjp.cdn.prismic.io/api"
+    },
+    "metalsmith-partial": {
+      "engine": "ejs",
+      "directory": "templates/partials"
+    },
+    "metalsmith-templates": {
+      "engine": "ejs"
     }
   }
 }

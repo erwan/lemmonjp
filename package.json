@@ -4,12 +4,16 @@
     "metalsmith": "1.7.0",
     "metalsmith-templates": "0.7.0",
     "metalsmith-markdown": "^0.2.1",
+    "metalsmith-partial": "0.1.0",
     "metalsmith-permalinks": "^0.1.1",
-    "handlebars": "3.0.3",
-    "metalsmith-prismic": "0.7.1"
+    "ejs": "2.3.1",
+    "metalsmith-prismic": "git@github.com:erwan/metalsmith-prismic.git#erwan"
   },
   "scripts": {
     "clean": "rm -rf dist/*",
-    "build": "metalsmith"
+    "build": "metalsmith",
+    "serve": "cd dist && python -m SimpleHTTPServer",
+
+    "preserve": "npm run build"
   }
 }
