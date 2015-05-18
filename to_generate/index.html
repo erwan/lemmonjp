@@ -43,10 +43,11 @@
   ]
 </script>
 
-[% _.each(recent.results, function(post) { %]
+[% _.each(recent.results, function(post) {
+  var d = post.getDate('post.date'); %]
   <h2>date</h2>
   <div class="post">
-    <h3 class="storytitle"><a href="[%= pathTo('post', {'uid': post.uid}) %]">[%= post.getText('post.title') %]</a></h3>
+    <h3 class="storytitle"><a href="[%= pathTo('single', {'year': d.getFullYear(), 'month': d.getMonth(), 'day': d.getDay(), 'uid': post.uid}) %]">[%= post.getText('post.title') %]</a></h3>
     <div class="meta">
       if categories
       Filed under:
