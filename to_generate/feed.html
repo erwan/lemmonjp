@@ -15,17 +15,15 @@
 
 [% _.each(recent.results, function(post) {
   var d = post.getDate('post.date'); %]
-
         <entry>
                 <title>[%= post.getText('post.title') %]</title>
-                <link href="[%= pathTo('single', {'year': d.getFullYear(), 'month': d.getMonth(), 'day': d.getDay(), 'uid': post.uid}) %]"/>
+                <link href="http://lemmon.jp[%= pathTo('single', {'year': d.getFullYear(), 'month': d.getMonth() + 1, 'day': d.getDay() + 1, 'uid': post.uid}) %]"/>
                 <id>urn:uuid:[%= post.id %]</id>
-                <updated>[%= d ]</updated>
+                <updated>[%= d %]</updated>
                 <author>
                       <name>檸檬</name>
                 </author>
         </entry>
-
 [% }) %]
         
 </feed>
