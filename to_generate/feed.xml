@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+        <title>檸檬の日記</title>
+        <subtitle>A subtitle.</subtitle>
+        <link href="http://lemmon.jp/feed/" rel="self" />
+        <link href="http://lemmon.jp/" />
+        <!-- updated>2003-12-13T18:30:02Z</updated -->
+
+
+        <script type="text/prismic-query" data-binding="recent" data-query-orderings="[my.post.date desc]" data-query-page-size="10" data-query-fetch-links="categories.name">
+          [[:d = any(document.type, ["post"])]]
+        </script>
+
+[% _.each(recent.results, function(post) {
+  var d = post.getDate('post.date'); %]
+
+        <entry>
+                <title>[%= post.getText('post.title') %]</title>
+                <link href="[%= pathTo('single', {'year': d.getFullYear(), 'month': d.getMonth(), 'day': d.getDay(), 'uid': post.uid}) %]"/>
+                <id>urn:uuid:[%= post.id %]</id>
+                <updated>[%= d ]</updated>
+                <author>
+                      <name>檸檬</name>
+                </author>
+        </entry>
+
+[% }) %]
+        
+</feed>
