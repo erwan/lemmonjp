@@ -27,10 +27,15 @@ gulp.task('stylus', function () {
 });
 // More informations on https://www.npmjs.org/package/gulp-stylus
 
+gulp.task('assets', function () {
+    gulp.src('./assets/**/*')
+        .pipe(gulp.dest(config.options.dstDir));
+});
+
 gulp.task('watch:stylus', function () {
   gulp.watch(paths.stylus.src, ['stylus']);
 });
 
 // Defaults tasks
-gulp.task('serve', ['stylus', 'watch:stylus', 'baked:serve']);
-gulp.task('default', ['stylus', 'baked:default']);
+gulp.task('serve', ['assets', 'stylus', 'watch:stylus', 'baked:serve']);
+gulp.task('default', ['assets', 'stylus', 'baked:default']);

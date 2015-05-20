@@ -4,11 +4,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <title>檸檬の日記</title>
-  <style type="text/css" media="screen">
-    @import url( http://lemmon.jp/wp-content/themes/frametheme/style.css );
-  </style>
-  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://script.google.com/macros/s/AKfycbz4qx7YW8Jaw0GxgmIPWoysu_ExHXa407nNDgv2T7EZGCDdBnY/exec">
-  <link rel="shortcut icon" href="http://lemmon.jp/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/style.css"></style>
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed">
+  <link rel="shortcut icon" href="/lemmon.jp/favicon.ico">
   <!-- script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script -->
   <style>#header + #content > #left > #rlblock_left,
     #content > #right > .dose > .dosesingle,
@@ -37,22 +35,26 @@
   <div id="content">
     <!-- end header -->
 
-<script type="text/prismic-query" data-binding="recent" data-query-orderings="[my.post.date desc]" data-query-page-size="5" data-query-fetch-links="categories.name">
+<script type="text/prismic-query" data-binding="recent" data-query-orderings="[my.post.date desc]" data-query-page-size="5" data-query-fetch-links="category.name">
   [
     [:d = any(document.type, ["post"])]
   ]
 </script>
 
 [% _.each(recent.results, function(post) {
-  var d = post.getDate('post.date'); %]
-  <h2>date</h2>
+var d = post.getDate('post.date');
+var categories = post.getGroup('post.categories');
+%]
+  <h2>[%= d.getFullYear() %]年[%= (d.getMonth() + 1) %]月[%= d.getDate() %]日</h2>
   <div class="post">
-    <h3 class="storytitle"><a href="[%= pathTo('single', {'year': d.getFullYear(), 'month': d.getMonth() + 1, 'day': d.getDay() + 1, 'uid': post.uid}) %]">[%= post.getText('post.title') %]</a></h3>
+    <h3 class="storytitle"><a href="[%= pathTo('single', {'year': d.getFullYear(), 'month': d.getMonth() + 1, 'day': d.getDate(), 'uid': post.uid}) %]">[%= post.getText('post.title') %]</a></h3>
     <div class="meta">
-      if categories
+      [% if (categories) { %]
       Filed under:
-      each categories
-        <a href="url" rel="category tag">name</a>
+        [% _.each(categories.toArray(), function (cat) {  var link = cat.getLink('link'); %]
+          <a href="#" rel="category tag">[%= link.getText('category.name') %]</a>
+        [% }) %] -
+      [% } %]
     leMMon
     </div>
     <div class="storycontent">
