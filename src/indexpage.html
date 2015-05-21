@@ -17,14 +17,12 @@
   <!-- script type="text/javascript">
     _uacct = "UA-1608836-1"; urchinTracker();
   </script -->
-  <meta name="prismic-routing-pattern" content="$year/$month/$day/$uid">
-  <meta name="prismic-routing-param" content="year">
-  <meta name="prismic-routing-param" content="month">
-  <meta name="prismic-routing-param" content="day">
-  <meta name="prismic-routing-param" content="uid">
-
+  <meta name="prismic-routing-pattern" content="page/$page">
+  <meta name="prismic-routing-param" content="page">
+ 
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://prismicio.github.io/baked.js/baked-0.2.1.js"></script>
+
 </head>
 <body>
   <div id="rap">
@@ -46,27 +44,31 @@
   ]
 </script>
 
-<script type="text/prismic-query" data-binding="posts" data-query-page-size="1" data-query-fetch-links="categories.name">
+<script type="text/prismic-query" data-binding="posts" data-query-orderings="[my.post.date desc]" data-query-page="$page" data-query-page-size="5" data-query-fetch-links="categories.name">
   [
-    [:d = at(my.post.uid, "$uid")]
+    [:d = any(document.type, ["post"])]
   ]
 </script>
 
 [% _.each(posts.results, function(post) {
-this.show_comments = true;
+this.show_comments = false;
 this.post = post; %]
 [%- partial('_post.html') %]
 [% }) %]
+    
 
+[% this.response = posts %]
+[%- partial('_pagination.html') %]
+
+    <!-- begin footer -->
 
   </div>
 </div>
 
 [% this.recent = recent %]
-[% this.categories = categories %]
 [%- partial('_sidebar.html') %]
 
-<div id="window-resizer-tooltip" style="display: none;"><a href="http://lemmon.jp/#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1388</span> x <span class="tooltipHeight" id="winHeight">877</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1388</span> x <span class="tooltipHeight" id="vpHeight">761</span></div>
+[%- partial('_footer.html') %]
 
 </body>
 </html>

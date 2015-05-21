@@ -22,16 +22,8 @@
 <body>
   <div id="rap">
 
-  <h1 id="header"><a href="/">檸檬の日記</a></h1>
-
-  <div id="navcontainer">
-    <!-- TODO: dynamic pages -->
-    <ul>
-      <li class="page_item page-item-2"><a href="http://lemmon.jp/about/">About</a></li>
-      <li class="page_item page-item-40"><a href="http://lemmon.jp/links/">Links</a></li>
-    </ul>
-  </div>
-
+[%- partial('header') %]
+  
   <div id="content">
     <!-- end header -->
 
@@ -48,6 +40,7 @@
 </script>
 
 [% _.each(recent.results, function(post) {
+this.show_comments = false;
 this.post = post; %]
 [%- partial('_post.html') %]
 [% }) %]
@@ -65,7 +58,8 @@ this.post = post; %]
 [% this.categories = categories %]
 [%- partial('_sidebar.html') %]
 
-<div id="window-resizer-tooltip" style="display: none;"><a href="http://lemmon.jp/#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1388</span> x <span class="tooltipHeight" id="winHeight">877</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1388</span> x <span class="tooltipHeight" id="vpHeight">761</span></div>
+
+[%- partial('_footer.html') %]
 
 </body>
 </html>

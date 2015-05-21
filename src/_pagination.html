@@ -1,21 +1,21 @@
     <div class="pagination">
     [% if (this.response.page > 1) { %]
       [% if (this.response.page > 2) { %]
-        <a href="[%= pathTo('page', {page: 1}) %]">First</a>
+        <a href="[%= pathTo('indexpage', {page: 1}) %]">First</a>
       [% } else { %]
         First
       [% } %]
       |
-      <a href="[%= pathTo('page', {page: this.response.page-1}) %]">« 前のページへ</a>
+      <a href="[%= pathTo('indexpage', {page: this.response.page-1}) %]">« 前のページへ</a>
     [% } else { %]
       First | « 前のページへ
     [% } %]
     |
     [% if (this.response.page < this.response.total_pages) { %]
-      <a href="[%= pathTo('page', {page: this.response.page+1}) %]">次ページへ »</a>
+      <a href="[%= pathTo('indexpage', {page: this.response.page+1}) %]">次ページへ »</a>
       |
       [% if (this.response.page < this.response.total_pages-1) { %]
-        <a href="[%= pathTo('page', {page: this.response.total_pages}) %]">Last</a>
+        <a href="[%= pathTo('indexpage', {page: this.response.total_pages}) %]">Last</a>
       [% } else { %]
         Last
       [% } %]

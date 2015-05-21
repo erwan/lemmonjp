@@ -17,25 +17,16 @@
   <!-- script type="text/javascript">
     _uacct = "UA-1608836-1"; urchinTracker();
   </script -->
-  <meta name="prismic-routing-pattern" content="page/$page">
-  <meta name="prismic-routing-param" content="page">
- 
+  <meta name="prismic-routing-pattern" content="$uid">
+  <meta name="prismic-routing-param" content="uid">
+
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://prismicio.github.io/baked.js/baked-0.2.1.js"></script>
-
 </head>
 <body>
   <div id="rap">
 
-  <h1 id="header"><a href="/">檸檬の日記</a></h1>
-
-  <div id="navcontainer">
-    <!-- TODO: dynamic pages -->
-    <ul>
-      <li class="page_item page-item-2"><a href="http://lemmon.jp/about/">About</a></li>
-      <li class="page_item page-item-40"><a href="http://lemmon.jp/links/">Links</a></li>
-    </ul>
-  </div>
+[%- partial('header') %]
 
   <div id="content">
     <!-- end header -->
@@ -52,27 +43,28 @@
   ]
 </script>
 
-<script type="text/prismic-query" data-binding="posts" data-query-orderings="[my.post.date desc]" data-query-page="$page" data-query-page-size="5" data-query-fetch-links="categories.name">
+<script type="text/prismic-query" data-binding="pages" data-query-page-size="1">
   [
-    [:d = any(document.type, ["post"])]
+    [:d = at(my.page.uid, "$uid")]
   ]
 </script>
 
-[% _.each(posts.results, function(post) {
-this.post = post; %]
-[%- partial('_post.html') %]
+[% _.each(pages.results, function(page) { %]
+  <h2>檸檬の日記</h2>
+  <div class="post">
+    <h3 class="storytitle">[%= page.getText('page.title') %]</h3>
+    <div class="storycontent">
+      [%- page.getStructuredText('page.body').asHtml() %]
+    </div>
+  </div>
 [% }) %]
-    
 
-[% this.response = posts %]
-[%- partial('_pagination.html') %]
-
-    <!-- begin footer -->
 
   </div>
 </div>
 
 [% this.recent = recent %]
+[% this.categories = categories %]
 [%- partial('_sidebar.html') %]
 
 <div id="window-resizer-tooltip" style="display: none;"><a href="http://lemmon.jp/#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1388</span> x <span class="tooltipHeight" id="winHeight">877</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1388</span> x <span class="tooltipHeight" id="vpHeight">761</span></div>
