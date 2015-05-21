@@ -49,24 +49,8 @@
 </script>
 
 [% _.each(posts.results, function(post) {
-  var d = post.getDate('post.date'); %]
-  <h2>[%= d.getFullYear() %]年[%= (d.getMonth() + 1) %]月[%= d.getDate() %]日</h2>
-  <div class="post">
-    <h3 class="storytitle">[%= post.getText('post.title') %]</h3>
-    <div class="meta">
-      if categories
-      Filed under:
-      each categories
-        <a href="url" rel="category tag">name</a>
-    leMMon
-    </div>
-    <div class="storycontent">
-      [%- post.getStructuredText('post.body').asHtml() %]
-    </div>
-    <div class="feedback">
-      TODO: Disqus comments
-    </div>
-  </div>
+this.post = post; %]
+[%- partial('_post.html') %]
 [% }) %]
     
     <div style=""><a href="http://lemmon.jp/page/2/">次ページへ »</a></div>

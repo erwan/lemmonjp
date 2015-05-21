@@ -46,55 +46,15 @@
   ]
 </script>
 
-[% _.each(posts.results, function(post) {
-  var d = post.getDate('post.date'); %]
-  <h2>date</h2>
-  <div class="post">
-    <h3 class="storytitle"><a href="[%= pathTo('single', {'year': d.getFullYear(), 'month': d.getMonth() + 1, 'day': d.getDay() + 1, 'uid': post.uid}) %]">[%= post.getText('post.title') %]</a></h3>
-    <div class="meta">
-      if categories
-      Filed under:
-      each categories
-        <a href="url" rel="category tag">name</a>
-    leMMon
-    </div>
-    <div class="storycontent">
-      [%- post.getStructuredText('post.body').asHtml() %]
-    </div>
-    <div class="feedback">
-      TODO: Disqus comments
-    </div>
-  </div>
+[% _.each(recent.results, function(post) {
+this.post = post; %]
+[%- partial('_post.html') %]
 [% }) %]
+    
 
-    <div>
-    [% if (posts.page > 1) { %]
-      [% if (posts.page > 2) { %]
-        <a href="[%= pathTo('page', {page: 1}) %]">First</a>
-      [% } else { %]
-        First
-      [% } %]
-      |
-      <a href="[%= pathTo('page', {page: posts.page-1}) %]">Previous</a>
-    [% } else { %]
-      First | Previous
-    [% } %]
-    |
-    [% if (posts.page < posts.total_pages) { %]
-      <a href="[%= pathTo('page', {page: posts.page+1}) %]">Next</a>
-      |
-      [% if (posts.page < posts.total_pages-1) { %]
-        <a href="[%= pathTo('page', {page: posts.total_pages}) %]">Last</a>
-      [% } else { %]
-        Last
-      [% } %]
-    [% } else { %]
-      Next | Last
-    [% } %]
-    </div>
+[% this.response = recent %]
+[%- partial('_pagination.html') %]
 
-  
-    <div style=""><a href="http://lemmon.jp/page/2/">次ページへ »</a></div>
     <!-- begin footer -->
 
   </div>
