@@ -412,3 +412,15 @@ color: #ffffff
   margin: 0;
   padding: 0;
 }
+
+/* Google search */
+.gsc-control-cse {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.gsc-search-button input {
+    padding: 6px 12px !important;
+}
+

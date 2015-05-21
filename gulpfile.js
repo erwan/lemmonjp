@@ -5,7 +5,9 @@ var watch = require('gulp-watch');
 
 // Load and get the baked configuration
 // in order to use srcDir and dstDir
-var config = baked.init({options:{}});
+var config = baked.init({options:{
+  srcDir: "src"
+}});
 
 // This example uses its specific package.json file so its gulp instance seems
 // to be distinct than the baked's one. This helper allows to load every tasks

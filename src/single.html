@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://gmpg.org/xfn/11">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>檸檬の日記</title>
+  <style type="text/css" media="screen">
+    @import url( http://lemmon.jp/wp-content/themes/frametheme/style.css );
+  </style>
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://script.google.com/macros/s/AKfycbz4qx7YW8Jaw0GxgmIPWoysu_ExHXa407nNDgv2T7EZGCDdBnY/exec">
+  <link rel="shortcut icon" href="http://lemmon.jp/favicon.ico">
+  <!-- script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script -->
+  <style>#header + #content > #left > #rlblock_left,
+    #content > #right > .dose > .dosesingle,
+    #content > #center > .dose > .dosesingle
+    {display:none !important;}</style>
+  <!-- script type="text/javascript">
+    _uacct = "UA-1608836-1"; urchinTracker();
+  </script -->
+  <meta name="prismic-routing-pattern" content="$year/$month/$day/$uid">
+  <meta name="prismic-routing-param" content="year">
+  <meta name="prismic-routing-param" content="month">
+  <meta name="prismic-routing-param" content="day">
+  <meta name="prismic-routing-param" content="uid">
+
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://prismicio.github.io/baked.js/baked-0.2.1.js"></script>
+</head>
+<body>
+  <div id="rap">
+
+  <h1 id="header"><a href="/">檸檬の日記</a></h1>
+
+  <div id="navcontainer">
+    <!-- TODO: dynamic pages -->
+    <ul>
+      <li class="page_item page-item-2"><a href="http://lemmon.jp/about/">About</a></li>
+      <li class="page_item page-item-40"><a href="http://lemmon.jp/links/">Links</a></li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <!-- end header -->
+
+<script type="text/prismic-query" data-binding="recent" data-query-orderings="[my.post.date desc]" data-query-page-size="5" data-query-fetch-links="category.name">
+  [
+    [:d = any(document.type, ["post"])]
+  ]
+</script>
+
+<script type="text/prismic-query" data-binding="posts" data-query-page-size="1" data-query-fetch-links="categories.name">
+  [
+    [:d = at(my.post.uid, "$uid")]
+  ]
+</script>
+
+[% _.each(posts.results, function(post) {
+this.post = post; %]
+[%- partial('_post.html') %]
+[% }) %]
+    
+    <div style=""><a href="http://lemmon.jp/page/2/">次ページへ »</a></div>
+    <!-- begin footer -->
+
+  </div>
+</div>
+
+[% this.recent = recent %]
+[%- partial('_sidebar.html') %]
+
+<div id="window-resizer-tooltip" style="display: none;"><a href="http://lemmon.jp/#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1388</span> x <span class="tooltipHeight" id="winHeight">877</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1388</span> x <span class="tooltipHeight" id="vpHeight">761</span></div>
+
+</body>
+</html>
