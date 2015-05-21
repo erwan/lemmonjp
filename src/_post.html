@@ -15,7 +15,7 @@
       [% if (categories) { %]
       Filed under:
         [% _.each(categories.toArray(), function (cat) {  var link = cat.getLink('link'); %]
-          <a href="#" rel="category tag">[%= link.getText('category.name') %]</a>
+          <a href="[%= pathTo('category', {'id': link.id}) %]" rel="category tag">[%= link.getText('category.name') %]</a>
         [% }) %] -
       [% } %]
     leMMon
