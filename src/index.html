@@ -35,6 +35,12 @@
   <div id="content">
     <!-- end header -->
 
+<script type="text/prismic-query" data-binding="categories" data-query-page-size="100">
+  [
+    [:d = at(document.type, "category")]
+  ]
+</script>
+
 <script type="text/prismic-query" data-binding="recent" data-query-orderings="[my.post.date desc]" data-query-page-size="5" data-query-fetch-links="category.name">
   [
     [:d = any(document.type, ["post"])]
@@ -56,34 +62,10 @@ this.post = post; %]
 </div>
 
 [% this.recent = recent %]
+[% this.categories = categories %]
 [%- partial('_sidebar.html') %]
 
-<p class="credit"><cite>Powered by <a href="http://wordpress.org/" title="%s" onclick="javascript:urchinTracker(&#39;/outbound/wordpress.org&#39;);"><strong>WordPress</strong></a></cite></p>
-
 <div id="window-resizer-tooltip" style="display: none;"><a href="http://lemmon.jp/#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1388</span> x <span class="tooltipHeight" id="winHeight">877</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1388</span> x <span class="tooltipHeight" id="vpHeight">761</span></div>
-
-
-<script type="text/html" id="post_tmpl">
-  <div class="post">
-    <h3 class="storytitle" id="post-304"><a href="<%= permalink %>"><%= title %></a></h3>
-    <div class="meta">
-      <% if (categories && categories.length > 0) { %>
-      Filed under:
-      <%= _.map(categories, function(category) {
-        return '<a href="' + category.url + '" rel="category tag">' + category.name + '</a>';
-      }).join(","); %>
-      -
-    <% } %>
-    leMMon @ <%= time %>
-    </div>
-    <div class="storycontent">
-      <%= body %>
-    </div>
-    <div class="feedback">
-      <a href="http://lemmon.jp/2014/06/09/%e3%83%a1%e3%83%87%e3%82%a3%e3%82%a2%e3%81%ae%e3%81%82%e3%82%8a%e6%96%b9/#respond" title="Comment on メディアのあり方">Comments (0)</a>
-    </div>
-  </div>
-</script>
 
 </body>
 </html>

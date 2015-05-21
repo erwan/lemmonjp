@@ -42,6 +42,12 @@
   <div id="content">
     <!-- end header -->
 
+<script type="text/prismic-query" data-binding="categories" data-query-page-size="100">
+  [
+    [:d = at(document.type, "category")]
+  ]
+</script>
+
 <script type="text/prismic-query" data-binding="recent" data-query-orderings="[my.post.date desc]" data-query-page-size="5" data-query-fetch-links="category.name">
   [
     [:d = any(document.type, ["post"])]
@@ -66,6 +72,7 @@ this.post = post; %]
 </div>
 
 [% this.recent = recent %]
+[% this.categories = categories %]
 [%- partial('_sidebar.html') %]
 
 <div id="window-resizer-tooltip" style="display: none;"><a href="http://lemmon.jp/#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1388</span> x <span class="tooltipHeight" id="winHeight">877</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1388</span> x <span class="tooltipHeight" id="vpHeight">761</span></div>

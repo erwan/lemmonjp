@@ -61,31 +61,14 @@
 		</li>
 <li id="category-cloud" class="widget widget_catcloud"><h2 class="widgettitle">Category</h2>
 <p class="catcloud" style="text-align:center;">
-<a href="http://lemmon.jp/category/%e8%81%9e%e3%81%84%e3%81%9f/" title="1 posts filed under 聞いた" style="font-size:82%">聞いた</a> 
-<a href="http://lemmon.jp/category/experience/" title="1 posts filed under 実験した" style="font-size:82%">実験した</a> 
-<a href="http://lemmon.jp/category/laugh/" title="1 posts filed under 笑った" style="font-size:82%">笑った</a> 
-<a href="http://lemmon.jp/category/translate/" title="1 posts filed under 訳した" style="font-size:82%">訳した</a> 
-<a href="http://lemmon.jp/category/blunder/" title="1 posts filed under やっちゃった" style="font-size:82%">やっちゃった</a> 
-<a href="http://lemmon.jp/category/pass/" title="2 posts filed under 受かった" style="font-size:84%">受かった</a> 
-<a href="http://lemmon.jp/category/get/" title="2 posts filed under もらった" style="font-size:84%">もらった</a> 
-<a href="http://lemmon.jp/category/decide/" title="2 posts filed under 決まった" style="font-size:84%">決まった</a> 
-<a href="http://lemmon.jp/category/%e9%81%8a%e3%82%93%e3%81%a0/" title="2 posts filed under 遊んだ" style="font-size:84%">遊んだ</a> 
-<a href="http://lemmon.jp/category/practice/" title="3 posts filed under 練習した" style="font-size:86%">練習した</a> 
-<a href="http://lemmon.jp/category/look-back/" title="3 posts filed under 振り返った" style="font-size:86%">振り返った</a> 
-<a href="http://lemmon.jp/category/start/" title="3 posts filed under 始めた" style="font-size:86%">始めた</a> 
-<a href="http://lemmon.jp/category/happen/" title="5 posts filed under 起こった" style="font-size:89%">起こった</a> 
-<a href="http://lemmon.jp/category/meet/" title="5 posts filed under 会った" style="font-size:89%">会った</a> 
-<a href="http://lemmon.jp/category/make/" title="6 posts filed under 作った" style="font-size:91%">作った</a> 
-<a href="http://lemmon.jp/category/use/" title="6 posts filed under 使った" style="font-size:91%">使った</a> 
-<a href="http://lemmon.jp/category/eat/" title="7 posts filed under 食べた" style="font-size:93%">食べた</a> 
-<a href="http://lemmon.jp/category/read/" title="8 posts filed under 読んだ" style="font-size:95%">読んだ</a> 
-<a href="http://lemmon.jp/category/buy/" title="9 posts filed under 買った" style="font-size:97%">買った</a> 
-<a href="http://lemmon.jp/category/immerse/" title="10 posts filed under ハマった" style="font-size:98%">ハマった</a> 
-<a href="http://lemmon.jp/category/visit/" title="13 posts filed under 行った" style="font-size:104%">行った</a> 
-<a href="http://lemmon.jp/category/watch/" title="14 posts filed under 観た" style="font-size:105%">観た</a> 
-<a href="http://lemmon.jp/category/surprise/" title="15 posts filed under 驚いた" style="font-size:107%">驚いた</a> 
-<a href="http://lemmon.jp/category/think/" title="29 posts filed under 考えた" style="font-size:132%">考えた</a> </p></li>
-<li id="text-1" class="widget widget_text">			<div class="textwidget"><ul><li><a href="http://lemmon.jp/feed"><img style="border:0;" src="/images/feed.png" alt="RSS">&nbsp;フィード</a></li></ul>
+[% _.each(this.categories.results, function(category) { %]
+  <a href="[%= pathTo('category', {'id': category.id}) %]" title="" style="">[%= category.getText('category.name') %]</a>
+[% }) %]
+<!-- a href="http://lemmon.jp/category/%e8%81%9e%e3%81%84%e3%81%9f/" title="1 posts filed under 聞いた" style="font-size:82%">聞いた</a -->
+</p></li>
+<li id="text-1" class="widget widget_text">
+
+  <div class="textwidget"><ul><li><a href="http://lemmon.jp/feed"><img style="border:0;" src="/images/feed.png" alt="RSS">&nbsp;フィード</a></li></ul>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
 </script>
 <script type="text/javascript">
@@ -115,6 +98,7 @@ urchinTracker();
 </li>
 <li id="archives-3" class="widget widget_archive"><h2 class="widgettitle">アーカイブ</h2>
 		<ul>
+
 	<li><a href="http://lemmon.jp/2014/06/">2014年6月</a></li>
 	<li><a href="http://lemmon.jp/2013/12/">2013年12月</a></li>
 	<li><a href="http://lemmon.jp/2013/07/">2013年7月</a></li>
