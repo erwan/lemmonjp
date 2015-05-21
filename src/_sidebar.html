@@ -47,9 +47,14 @@
 		<li id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widgettitle">最近の投稿</h2>
 		<ul>
 [% _.each(this.recent.results, function(post) {
-   var d = post.getDate('post.date'); %]
+   var d = post.getDate('post.date');
+   var year = '' + d.getFullYear();
+   var month = '' + (d.getMonth() + 1);
+   var date = '' + d.getDate();
+   if (month.length == 1) month = '0' + month;
+   if (date.length == 1) date = '0' + date; %]
 		<li>
-      <a href="[%= pathTo('single', {'year': d.getFullYear(), 'month': d.getMonth() + 1, 'day': d.getDate(), 'uid': post.uid}) %]">[%= post.getText('post.title') %]</a>
+      <a href="[%= pathTo('single', {'year': year, 'month': month, 'day': date, 'uid': post.uid}) %]">[%= post.getText('post.title') %]</a>
     </li>
 [% }) %]
 				</ul>
