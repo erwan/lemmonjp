@@ -22,5 +22,5 @@ build:
     - script:
         name: build site
         code: |
-            gulp
+           ./node_modules/gulp/bin/gulp.js 
 
