@@ -27,6 +27,7 @@ build:
 deploy:
     steps:
     - s3sync:
+        opts: --encoding=UTF-8
         source_dir: generated/
         delete-removed: true
         bucket-url: $AWS_BUCKET_URL
