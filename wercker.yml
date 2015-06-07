@@ -26,15 +26,11 @@ build:
 
 deploy:
     steps:
-      - rvm-use:
-          version: ruby-2.1.5
-      - bundle-install
-      - ascendbruce/s3sync:
+    - s3sync:
         opts: --encoding=UTF-8
         source_dir: generated/
         delete-removed: true
-        bucket-name: $AWS_BUCKET_NAME
-        region: $AWS_REGION
+        bucket-url: $AWS_BUCKET_URL
         key-id: $AWS_ACCESS_KEY_ID
         key-secret: $AWS_SECRET_ACCESS_KEY
 
