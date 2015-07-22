@@ -1,10 +1,7 @@
   <h1 id="header"><a href="/">檸檬の日記</a></h1>
 
-  <div id="navcontainer">
+  <ul id="navcontainer">
     <!-- TODO: dynamic pages -->
-    <ul>
-      <li class="page_item"><a href="[%= pathTo('page', {'uid': 'about'}) %]">About</a></li>
-      <li class="page_item"><a href="[%= pathTo('page', {'uid': 'links'}) %]">Links</a></li>
-    </ul>
-  </div>
-
+    <li class="page_item"><a href="[%= pathTo('page', {'uid': 'about'}) %]">About</a></li>
+    <li class="page_item"><a href="[%= pathTo('page', {'uid': 'links'}) %]">Links</a></li>
+  </ul>

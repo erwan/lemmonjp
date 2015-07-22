@@ -38,7 +38,7 @@ this.show_comments = false;
 this.post = post; %]
 [%- partial('_post.html') %]
 [% }) %]
-    
+
 
 [% this.response = posts %]
 [%- partial('_pagination.html') %]
@@ -49,9 +49,10 @@ this.post = post; %]
 [% this.recent = recent %]
 [%- partial('_sidebar.html') %]
 
-</div>
+  <div class="clear"></div>
 
 [%- partial('_footer.html') %]
+</div>
 
 </body>
 </html>

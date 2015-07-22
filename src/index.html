@@ -7,7 +7,8 @@
   <div id="rap">
 
 [%- partial('header') %]
-  
+
+  <div id="cols">
   <div id="content">
     <!-- end header -->
 
@@ -28,22 +29,25 @@ this.show_comments = false;
 this.post = post; %]
 [%- partial('_post.html') %]
 [% }) %]
-    
+
 
 [% this.response = recent %]
 [%- partial('_pagination.html') %]
 
     <!-- begin footer -->
 
-  </div>
+</div>
 
 [% this.recent = recent %]
 [% this.categories = categories %]
 [%- partial('_sidebar.html') %]
 
+  <div class="clear">
+</div>
 </div>
 
 [%- partial('_footer.html') %]
+</div>
 
 </body>
 </html>
